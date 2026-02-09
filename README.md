@@ -81,7 +81,7 @@ Pour lancer le projet localement :
 
 1.  **Cloner le dépôt :**
     ```sh
-    git clone [https://github.com/votre-username/TPSession.git](https://github.com/votre-username/TPSession.git)
+    git clone [https://github.com/mlkr-pro/SAE401.git](https://github.com/mlkr-pro/SAE401.git)
     ```
 
 2.  **Configuration de la Base de données :**
