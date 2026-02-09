@@ -9,7 +9,7 @@
     Le projet combine la gestion de sessions PHP et les interactions avec une base de données MySQL.
     <br />
     <br />
-    <a href="https://lecaer.alwaysdata.net/S3/R3.13/TPSession/"><strong>Voir le site en ligne »</strong></a>
+    <a href="https://lecaer.alwaysdata.net/S3/R3.13/Projet-CRUD/"><strong>Voir le site en ligne »</strong></a>
   </p>
 </div>
 
