@@ -15,16 +15,16 @@ $nomPreRempli = "";
 $prenomPreRempli = "";
 
 if (isset($_POST['action_ajout'])) {
-    $nom = mysqli_real_escape_string($mysqli, $_POST['nom']);
-    $prenom = mysqli_real_escape_string($mysqli, $_POST['prenom']);
-    $date = mysqli_real_escape_string($mysqli, $_POST['dateNaissance']);
+    $nom = mysqli_real_escape_string($link, $_POST['nom']);
+    $prenom = mysqli_real_escape_string($link, $_POST['prenom']);
+    $date = mysqli_real_escape_string($link, $_POST['dateNaissance']);
     
     $req = "INSERT INTO adherent (nom, prenom, dateNaissance) VALUES ('$nom', '$prenom', '$date')";
-    if (mysqli_query($mysqli, $req)) {
+    if (mysqli_query($link, $req)) {
         $message = "Adhérent ajouté avec succès !";
         $mode = "recherche"; 
     } else {
-        $message = "Erreur SQL : " . mysqli_error($mysqli);
+        $message = "Erreur SQL : " . mysqli_error($link);
         $mode = "ajout";
     }
 }
@@ -39,19 +39,19 @@ if (isset($_POST['rechercher'])) {
         $conditions = array();
 
         if (!empty($nomRech)) {
-            $safeNom = mysqli_real_escape_string($mysqli, $nomRech);
+            $safeNom = mysqli_real_escape_string($link, $nomRech);
             $conditions[] = "nom = '$safeNom'";
         }
 
         if (!empty($prenomRech)) {
-            $safePrenom = mysqli_real_escape_string($mysqli, $prenomRech);
+            $safePrenom = mysqli_real_escape_string($link, $prenomRech);
             $conditions[] = "prenom = '$safePrenom'";
         }
 
         $sqlWhere = implode(" AND ", $conditions);
         $req = "SELECT * FROM adherent WHERE $sqlWhere";
         
-        $res = mysqli_query($mysqli, $req);
+        $res = mysqli_query($link, $req);
         
         if ($res && mysqli_num_rows($res) > 0) {
             $mode = "liste";
@@ -152,4 +152,4 @@ if (isset($_POST['rechercher'])) {
     </div>
 </body>
 </html>
-<?php mysqli_close($mysqli); ?>
+<?php mysqli_close($link); ?>

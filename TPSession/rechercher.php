@@ -40,5 +40,5 @@ if (isset($_POST['nom'])) {
     echo '<p><a href="index.php">Nouvelle recherche</a></p>';
 }
 
-mysqli_close($mysqli);
+mysqli_close($link);
 ?>

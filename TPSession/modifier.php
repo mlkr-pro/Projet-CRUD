@@ -10,24 +10,24 @@ $row = ['nom'=>'', 'prenom'=>'', 'dateNaissance'=>''];
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $req = "SELECT * FROM adherent WHERE id = $id";
-    $res = mysqli_query($mysqli, $req);
+    $res = mysqli_query($link, $req);
     $row = mysqli_fetch_assoc($res);
 }
 
 if (isset($_POST['modifier'])) {
     $idToUpdate = $_POST['id'];
-    $nouveauNom = mysqli_real_escape_string($mysqli, $_POST['nouveauNom']);
-    $nouveauPrenom = mysqli_real_escape_string($mysqli, $_POST['nouveauPrenom']);
-    $nouvelleDate = mysqli_real_escape_string($mysqli, $_POST['nouvelleDate']);
+    $nouveauNom = mysqli_real_escape_string($link, $_POST['nouveauNom']);
+    $nouveauPrenom = mysqli_real_escape_string($link, $_POST['nouveauPrenom']);
+    $nouvelleDate = mysqli_real_escape_string($link, $_POST['nouvelleDate']);
 
     $reqUpdate = "UPDATE adherent SET nom='$nouveauNom', prenom='$nouveauPrenom', dateNaissance='$nouvelleDate' WHERE id=$idToUpdate";
     
-    if (mysqli_query($mysqli, $reqUpdate)) {
+    if (mysqli_query($link, $reqUpdate)) {
         echo "<h1>Modification effectuée avec succès.</h1>";
         echo "<a href='index.php'>Retour à l'accueil</a>";
         exit;
     } else {
-        echo "Erreur : " . mysqli_error($mysqli);
+        echo "Erreur : " . mysqli_error($link);
     }
 }
 ?>
