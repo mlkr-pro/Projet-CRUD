@@ -6,11 +6,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-$mysqli = mysqli_connect("mysql-lecaer.alwaysdata.net", "lecaer", "Nator.95", "lecaer_club");
-if (mysqli_connect_errno()) {
-    die("Erreur de connexion : " . mysqli_connect_error());
-}
-mysqli_set_charset($mysqli, "utf8");
+require_once 'db_config.php';
 
 $mode = "recherche"; 
 $message = "";

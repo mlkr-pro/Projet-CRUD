@@ -2,8 +2,7 @@
 session_start();
 if (!isset($_SESSION['user'])) { header("Location: login.php"); exit(); }
 
-$mysqli = mysqli_connect("mysql-lecaer.alwaysdata.net","lecaer","Nator.95","lecaer_club");
-mysqli_set_charset($mysqli, "utf8");
+require_once 'db_config.php';
 
 $id = 0;
 $row = ['nom'=>'', 'prenom'=>'', 'dateNaissance'=>''];

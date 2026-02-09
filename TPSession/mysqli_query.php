@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("mysql-lecaer.alwaysdata.net","lecaer","Nator.95","lecaer_club");
+require_once 'db_config.php';
 if (mysqli_connect_errno()) {
     throw new RuntimeException('mysqli connection error: ' . mysqli_connect_error());
 }
